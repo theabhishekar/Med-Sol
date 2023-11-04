@@ -1,0 +1,133 @@
+import { useEffect } from "react";
+import {
+  Routes,
+  Route,
+  useNavigationType,
+  useLocation,
+} from "react-router-dom";
+import SignIn from "./pages/SignIn";
+import Sos from "./pages/Sos";
+import Man from "./pages/Man";
+import Camera from "./pages/Camera";
+import HomePage from "./pages/HomePage";
+import IPhone13141 from "./pages/IPhone13141";
+import SignIn1 from "./pages/SignIn1";
+import ProfileScreen from "./pages/ProfileScreen";
+import NutritionRecommendation from "./pages/NutritionRecommendation";
+import VirtualAssistance from "./pages/VirtualAssistance";
+import DoctorConsultation from "./pages/DoctorConsultation";
+import DoctorConsultation1 from "./pages/DoctorConsultation1";
+import EmergencyServices from "./pages/EmergencyServices";
+import Overlay from "./pages/Overlay";
+
+function App() {
+  const action = useNavigationType();
+  const location = useLocation();
+  const pathname = location.pathname;
+
+  useEffect(() => {
+    if (action !== "POP") {
+      window.scrollTo(0, 0);
+    }
+  }, [action, pathname]);
+
+  useEffect(() => {
+    let title = "";
+    let metaDescription = "";
+
+    switch (pathname) {
+      case "/":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/sos":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/man":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/camera":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/home-page":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/iphone-13-14-1":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/sign-in":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/profile-screen":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/nutrition-recommendation":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/virtual-assistance":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/doctor-consultation1":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/doctor-consultation":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/emergency-services":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/overlay":
+        title = "";
+        metaDescription = "";
+        break;
+    }
+
+    if (title) {
+      document.title = title;
+    }
+
+    if (metaDescription) {
+      const metaDescriptionTag: HTMLMetaElement | null = document.querySelector(
+        'head > meta[name="description"]'
+      );
+      if (metaDescriptionTag) {
+        metaDescriptionTag.content = metaDescription;
+      }
+    }
+  }, [pathname]);
+
+  return (
+    <Routes>
+      <Route path="/" element={<SignIn />} />
+      <Route path="/sos" element={<Sos />} />
+      <Route path="/man" element={<Man />} />
+      <Route path="/camera" element={<Camera />} />
+      <Route path="/home-page" element={<HomePage />} />
+      <Route path="/iphone-13-14-1" element={<IPhone13141 />} />
+      <Route path="/sign-in" element={<SignIn1 />} />
+      <Route path="/profile-screen" element={<ProfileScreen />} />
+      <Route
+        path="/nutrition-recommendation"
+        element={<NutritionRecommendation />}
+      />
+      <Route path="/virtual-assistance" element={<VirtualAssistance />} />
+      <Route path="/doctor-consultation1" element={<DoctorConsultation />} />
+      <Route path="/doctor-consultation" element={<DoctorConsultation1 />} />
+      <Route path="/emergency-services" element={<EmergencyServices />} />
+      <Route path="/overlay" element={<Overlay />} />
+    </Routes>
+  );
+}
+export default App;
